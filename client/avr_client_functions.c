@@ -335,18 +335,20 @@ int send_data_web(char *name, char *i_type, int channel, char args[], char *answ
   sprintf(send, "%s%s", name, string);
   write(fd, send, strlen(send));
   if(strcmp(i_type, DIGITAL_IN) == 0){
-    printf("scoppi qui\n");
-    //answer = calloc(1, sizeof(char));
-    cazzo = (char*)malloc(1);
-    printf(" qui\n");
-    read(fd, cazzo, 1);
-    printf("o qui\n");
-    //printf("%s\n", answer);
+    
+    lseek(fd, 0, SEEK_SET);
+    int resRead=read(fd, answer, 1);
+    printf("resRead = %d\n",resRead);
+    answer[1]='\0';
+    printf("Risposta = %s\n",answer);
   }else if(strcmp(i_type, ANALOG) == 0){
-    //answer = calloc(4, sizeof(char));
-    cazzo = (char*)malloc(4);
-    read(fd, cazzo, 4);
-    //printf("%s\n", answer);
+    lseek(fd, 0, SEEK_SET);
+    printf("sizeof(answer) = %d\n",sizeof(answer));
+    int resRead2=read(fd, answer, 4);
+    printf("resRead2 = %d\n",resRead2);
+    answer[4]='\0';
+    printf("Risposta = %s\n",answer);
+
   }
   free(send);
   free(string);
@@ -379,7 +381,7 @@ int set_channel_value_web(char **args){
 }
 
 int get_channel_value_web(char **args, char *answer){
-  printf("areiv\n");
+
   int channel;
   if(args[1] == NULL){
     return NO_ARGS;
@@ -388,12 +390,12 @@ int get_channel_value_web(char **args, char *answer){
   }else if(strcmp(args[1], name) != 0){
     return BAD_NAME;
   }
-  printf("areiv\n");
+
   channel = avr_get_conf_switch(args, default_din_channels_name);
   if(channel == -1){
     return BAD_CHANNEL_NAME;
   }else{
-    printf("daje\n");
+
     if(send_data_web(name, DIGITAL_IN, channel, args[2], answer) == -1)
       return BAD_DATA;
     return SUCCESS;

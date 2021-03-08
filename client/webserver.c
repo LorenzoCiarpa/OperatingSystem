@@ -95,57 +95,54 @@ int manageWebServerRequest(struct lws *wsi, char* buf){
   char** args;
   char* temp;
   char* answer;
+  char* final_answer;
 
+
+  int final_size;
   int answer_size;
   int res;
   int size = strlen(buf);
+
   args = avr_client_parse(buf);
-  printf("pre args: %d\n",sizeof(args));
+
+  answer = malloc(5);
+  final_answer = malloc(6+size);
 
   if(strcmp(args[0],"get_channel_value_web") == 0){
-    printf("entrao giusto\n");
-    answer = (char*)malloc(8);
+    strcpy(final_answer, args[2]);
+    strcat(final_answer," ");
 
-    printf("%s\n",args[2]);
+
     res = get_channel_value_web(args,answer);
-    answer_size = strlen(answer);
 
-    printf("res: %d\n",res);
-    lws_write(wsi, answer,answer_size, LWS_WRITE_TEXT);
+    strcat(final_answer, answer);
+    final_size = strlen(final_answer);
 
-    //free(answer);
+    lws_write(wsi, final_answer,final_size, LWS_WRITE_TEXT);
+
 
 
   }else if(strcmp(args[0],"get_adc_channel_value_web") == 0){
+    strcpy(final_answer, args[2]);
+    strcat(final_answer," ");
+
+
     res = get_adc_channel_value_web(args,answer);
-    answer_size = strlen(answer);
-    lws_write(wsi, answer,answer_size, LWS_WRITE_TEXT);
-    //free(answer);
+
+    strcat(final_answer, answer);
+    final_size=strlen(final_answer);
+    lws_write(wsi, final_answer,final_size, LWS_WRITE_TEXT);
+
 
   }else if(strcmp(args[0],"set_name") == 0){
     res = set_name(args);
 
-    printf("%d\n",res);
 
-    /*
-    res = avr_client_execute(args);
-    printf("%d\n",res);
-*/
+
   }
-
-  printf("post args: %d\n",sizeof(args));
-  printf("%s\n", args[0]);
-  printf("tutto ok1\n");
   free(args);
-  printf("tutto ok2\n");
-/*
-  Send Back for Debugging
+  free(answer);
 
-  unsigned char* answer = (unsigned char*) malloc(100);
-  sprintf(answer, "received %s", buf);
-  int answer_size = strlen(answer);
-  lws_write(wsi, answer,answer_size, LWS_WRITE_TEXT);
-*/
 }
 
 
@@ -223,9 +220,3 @@ int webServerCreate(){
   return 0;
 
 }
-/*
-int main(void) {
-  webServerCreate();
-  return 0;
-}
-*/
