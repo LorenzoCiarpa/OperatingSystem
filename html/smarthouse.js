@@ -3,7 +3,9 @@ var ws = new WebSocket('ws://127.0.0.1:9000/','dumb-increment-protocol');
 var name_disp;
 
 ws.onmessage = function(event) {
-    document.getElementById('msgBox').innerHTML = event.data;
+    var answer = event.data.split(" ");
+    var idx = "value_" + answer[0];
+    document.getElementById(idx).innerHTML = answer[1];
 }
 
 function setDigital(id){
