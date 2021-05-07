@@ -1,0 +1,56 @@
+<!--Inizio HTML-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Netflix - Sign Up</title>
+        <link rel="stylesheet" href="./style/style-login.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./script/sign_up.js"></script>
+
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="logo">
+                    <a href="#"><img src="./images/Netflix-logo.png" alt="logo"></a>
+                </div>
+
+            </div>
+            <div class="login_body">
+                <div class="login_box">
+                    <h2>Sign Up</h2>
+                    <form class="" action="./php/sign_up.php" method="post">
+                        <div class="input_wrap">
+                            <input id ="email" type="text" name="email" value="" placeholder="Email">
+                            <span class="sign_error"></span>
+                        </div>
+                        <div class="input_wrap">
+                            <input id ="password1" type="password" name="password1" value="" placeholder="Password">
+                            <span class="sign_error"></span>
+                        </div>
+                        <div class="input_wrap">
+                            <input id ="password2" type="password" name="password2" value="" placeholder="Repeat Password">
+                            <span class="sign_error"></span>
+                        </div>
+                        <div class="input_wrap">
+                            <button id="login" type="button" name="button">Sign up</button>
+                        </div>
+                        <div class="login_footer">
+                            <div class="sign_up">
+                                <p>Have already an account? <a href="login.html">Sign in now.</a></p>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+</html>

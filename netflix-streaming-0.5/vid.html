@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./style/stylevid.css">
+    <title>Prova video player</title>
+    <script type="text/javascript" src="./script/custom.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="c-video">
+            <video id="video-film" src="./Media/vid1.mov" controls ></video>
+        </div>
+    </div>
+<script>
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var vid = document.getElementById('video-film');
+
+    var titolo_film = urlParams.get('titolo');
+    var video_path = urlParams.get('video');
+    var time = new Time(urlParams.get('time'));
+
+    vid.setAttribute("src", video_path);
+    vid.oncanplay = function(){
+
+        if(time.toSeconds() >= Math.floor(vid.duration)){
+            vid.currentTime = 0;
+        }else{
+            vid.currentTime = time.toSeconds();
+        }
+        vid.oncanplay = null;
+    };
+
+
+    window.addEventListener('beforeunload', function (e) {
+        var set_time = document.getElementById('video-film').currentTime;
+        updateTime(titolo_film, set_time);
+    });
+
+
+</script>
+
+</body>
+</html>

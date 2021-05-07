@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Netflix - Login</title>
+        <link rel="stylesheet" href="./style/style-login.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./script/login.js"></script>
+
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="logo">
+                    <a href="#"><img src="./images/Netflix-logo.png" alt="logo"></a>
+
+                </div>
+
+            </div>
+            <div class="login_body">
+                <div class="login_box">
+                    <h2>Sign in</h2>
+                    <form class="" action="./php/login.php" method="post">
+                        <div class="input_wrap">
+                            <input id ="email" type="text" name="email" value="" placeholder="Email">
+                            <span class="sign_error"></span>
+                        </div>
+                        <div class="input_wrap">
+                            <input id ="password" type="password" name="password" value="" placeholder="Password">
+                            <span class="sign_error"></span>
+                        </div>
+                        <div class="input_wrap">
+                            <button id="login" type="button" name="button">Sign in</button>
+                        </div>
+                        <div class="sign_up">
+                            <p>New to Netflix? <a href="sign_up.html">Sign up now.</a></p>
+                        </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+</html>

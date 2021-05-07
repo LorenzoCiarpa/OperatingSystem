@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Netflix</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./script/custom.js"></script>
+
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="chk1">
+        <div class="logo">
+            <h2>NomeSito</h2>
+        </div>
+        <ul>
+            <li><a href="#" onclick="getCategory('azione')">Home</a></li>
+            <li><a href="#">Film</a></li>
+            <li><a href="#">Serie Tv</a></li>
+            <li><a href="#" onclick="setPreferiti()">Preferiti</a></li>
+            <label for="chk1" class="menu-close">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </label>
+        </ul>
+        <div class="search">
+            <input type="text" name="search" id="srch"
+            required placeholder="Cerca" onkeyup="setSearch(this)">
+            <button type="submit">Cerca</button>
+        </div>
+        <label for="chk1" class="menu-open">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </label>
+    </header>
+    <section id="section">
+        <div class="container">
+            <div class="slides">
+                <img src="./Media/img1.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 01</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                    <button type="button">
+                        <i class="fa fa-plus"></i>
+                        Aggiungi ai preferiti
+                    </button>
+                    <button type="button">
+                        <i class="fa fa-check"></i>
+                        Salvato
+                    </button>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="./Media/img2.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 02</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="vid.html?titolo=qualcosa2">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="./Media/img3.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 03</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="vid.html?titolo=vid1">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="./Media/img4.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 04</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="./Media/img5.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 05</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="./Media/img6.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 06</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="./Media/img7.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 07</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="./Media/img8.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 08</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="./Media/img9.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 09</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                </div>
+            </div>
+            <div class="slides">
+                <img src="./Media/img10.jpg" alt="">
+                <div class="content">
+                    <h2>Film Titolo 10</h2>
+                    <p> Descrizione
+                    </p>
+                    <a href="#">
+                        <i class="fa fa-play" aria-hidden="true"></i>
+                        Guarda
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- -----------Parte su slider ------------------- -->
+        <div class="riga">
+            <h2>Potrebbe piacerti</h2>
+            <div class="nav">
+                <div class="nav-bar">
+                    <div class="colonna active">
+                        <img src="./Media/img1.jpg" alt="">
+                    </div>
+                    <div class="colonna">
+                        <img src="./Media/img2.jpg" alt="">
+                    </div>
+                    <div class="colonna">
+                        <img src="./Media/img3.jpg" alt="">
+                    </div>
+                    <div class="colonna">
+                        <img src="./Media/img4.jpg" alt="">
+                    </div>
+                    <div class="colonna">
+                        <img src="./Media/img5.jpg" alt="">
+                    </div>
+                    <div class="colonna">
+                        <img src="./Media/img6.jpg" alt="">
+                    </div>
+                    <div class="colonna">
+                        <img src="./Media/img7.jpg" alt="">
+                    </div>
+                    <div class="colonna">
+                        <img src="./Media/img8.jpg" alt="">
+                    </div>
+                    <div class="colonna">
+                        <img src="./Media/img9.jpg" alt="">
+                    </div>
+                    <div class="colonna">
+                        <img src="./Media/img10.jpg" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="prev"> < </div>
+            <div class="next"> > </div>
+        </div>
+
+    </section>
+    <!-- ----------funzioni slider------------- -->
+    <script>
+    setSlider();
+
+        //getCast('need for speed');
+        //addPreferiti('need for speed');
+
+        // deletePreferiti('need for speed');
+        //setPreferiti();
+        //getCategory('azione');
+        //getKeepFilm();
+        // getAgainFilm();
+        //updateTime('need for speed', '00:37:00');
+        //getFilm("RAMBO");
+
+    </script>
+</body>
+</html>
+
+<!-- <div class='container'>
+    <div class='slides'>
+        <img src='undefined'>
+        <div class='content'>
+            <h2>undefined</h2>
+            <p>undefined</p>
+            <a href='vid.html?titolo=undefined'><i class='fa fa-play' aria-hidden='true'></i>Guarda</a>
+        </div>
+    </div> -->
+<!-- <div class='container'>
+    <div class='slides'>
+        <img src='./images/film/rambo.jfif'>
+        <div class='content'>
+            <h2>RAMBO</h2>
+            <p>Preso di mira da</p>
+            <a href='vid.html?titolo='><i class='fa fa-play' aria-hidden='true'></i>Guarda</a>
+        </div>
+    </div>
+    <div class='slides'>
+        <img src='./images/film/The_Punisher_serie_TV.jpg'>
+        <div class='content'>
+            <h2>THE PUNISHER</h2>
+            <p>Quando la moglie e i figli</p>
+            <a href='vid.html?titolo=null'><i class='fa fa-play' aria-hidden='true'></i>Guarda</a>
+        </div>
+    </div>
+    <div class='slides'>
+        <img src='./images/film/need_for_speed.jpg'>
+        <div class='content'>
+            <h2>NEED FOR SPEED</h2>
+            <p>Appena uscito di prigione</p>
+            <a href='vid.html?titolo=null'><i class='fa fa-play' aria-hidden='true'></i>Guarda</a>
+        </div>
+    </div>
+</div>
+
+
+    <div class='riga'>
+    <h2>FILM azione</h2>
+    <div class='nav'>
+        <div class='nav-bar'>
+            <div class='colonna active'>
+                <img src='./images/film/rambo.jfif'>
+            </div>
+            <div class='colonna'>
+                <img src='./images/film/The_Punisher_serie_TV.jpg'>
+            </div>
+            <div class='colonna'>
+                <img src='./images/film/need_for_speed.jpg'>
+            </div>
+        </div>
+    </div>
+    <div class='prev'> < </div>
+    <div class='next'> > </div>
+</div> -->
